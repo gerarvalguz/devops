@@ -13,15 +13,19 @@
         <div class="col-md-4">
             <a class="btn btn-dark" href="{{route('proyectos.create')}}">Nuevo proyecto</a>
         </div>
+        
     </div>
 
     <div class="row mt-5">
         <div class="col-md-4">
+            <div class="col-xl-12 text-center mb-3">
+                <a href="{{ route('proyectos.downloadPdf') }}" class="btn btn-success btn-sm">Exportar</a>
+            </div>
             <table class="table">
                 <thead class="thead-dark">
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
+                    <th>Descripción</th>
                 </thead>
                 
                 @foreach ($query as $val)                    

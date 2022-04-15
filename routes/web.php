@@ -24,6 +24,8 @@ Route::group([], function(){
     Route::get('/proyectos','ProyectoController@index')->name('proyectos.index');
     Route::get('/proyectos/nuevo','ProyectoController@create')->name('proyectos.create');
     Route::post('/proyectos/nuevo','ProyectoController@store')->name('proyectos.store');
+    Route::get('/proyectos/downloadPdf','ProyectoController@downloadPdf')->name('proyectos.downloadPdf');
+    
 
 });
 

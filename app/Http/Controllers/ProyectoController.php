@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proyecto;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,6 @@ class ProyectoController extends Controller
     public function index(Request $request){
         
         $query = auth()->user()->proyectos()->paginate(5);
-        //  dd(auth()->user()->id);
         return view('proyectos.index')
                     ->with('query', $query);
     }
@@ -104,5 +104,16 @@ class ProyectoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function downloadPdf()
+    {
+        $proyectos = Proyecto::all();
+
+        view()->share('proyectos.download',$proyectos);
+
+        $pdf = PDF::loadView('proyectos.download', ['proyectos' => $proyectos]);
+
+        return $pdf->download('Proyectos'.'.pdf');
     }
 }
