@@ -24,7 +24,10 @@ Route::group([], function(){
     Route::get('/proyectos','ProyectoController@index')->name('proyectos.index');
     Route::get('/proyectos/nuevo','ProyectoController@create')->name('proyectos.create');
     Route::post('/proyectos/nuevo','ProyectoController@store')->name('proyectos.store');
-    Route::get('/proyectos/downloadPdf','ProyectoController@downloadPdf')->name('proyectos.downloadPdf');
+    Route::get('/proyectos/{proyecto}/editar','ProyectoController@edit')->name('proyectos.edit');
+    Route::put('/proyectos/{proyecto}','ProyectoController@update')->name('proyectos.update')->where('proyecto', '[0-9]+');
+
+    Route::post('/proyectos/downloadPdf','ProyectoController@downloadPdf')->name('proyectos.downloadPdf');
     
 
 });

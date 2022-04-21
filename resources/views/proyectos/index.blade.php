@@ -28,16 +28,17 @@
                     <th>Descripción</th>
                 </thead>
                 
-                @foreach ($query as $val)                    
+                @foreach ($query as $proyecto)                    
                     <tr>
                         <td>
-                            {{ $val->id }}
+                            {{ $proyecto->id }}
                         </td>
                         <td>
-                            {{ $val->nombre }}
+                            <a href="{{route('proyectos.edit', ['proyecto' => $proyecto->id] )}}">{{ $proyecto->nombre }}</a>
+                            
                         </td>
                         <td>
-                            {{ $val->descripcion }}
+                            {{ $proyecto->descripcion }}
                         </td>
                     </tr>
                 @endforeach                    
